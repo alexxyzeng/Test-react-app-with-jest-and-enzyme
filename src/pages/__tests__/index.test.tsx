@@ -1,7 +1,7 @@
 import 'jest';
 import Index from '..';
-import React from 'react';
-import { configure, mount } from 'enzyme';
+import React, { useState } from 'react';
+import { configure, mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer, { ReactTestInstance, ReactTestRenderer } from 'react-test-renderer';
 
@@ -24,5 +24,12 @@ describe('Page: index', () => {
     const outerLayer = wrapper.childAt(0);
     expect(outerLayer.type()).toBe('div');
     expect(outerLayer.children()).toHaveLength(2);
+  });
+  it('case of use state', () => {
+    const wrapper = shallow(<Index />);
+    expect(wrapper.find('#intro').text()).toBe('Welcome to Umi');
+    wrapper.find('button').simulate('click');
+
+    expect(wrapper.find('#intro').text()).toBe('Welcome to Jest and Enzyme');
   });
 });
