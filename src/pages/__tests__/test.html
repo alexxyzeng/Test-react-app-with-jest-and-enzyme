@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Event Flow</title>
+</head>
+<body>
+  <div id="target" onclick="() => console.log('aaa'">Click me</div>
+</body>
+<script>
+    const button = document.getElementById('target');
+    button.onclick = function() { console.log('button clicked') };
+  </script>
+</html>

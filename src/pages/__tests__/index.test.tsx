@@ -1,9 +1,11 @@
 import 'jest';
-import Index from '..';
 import React, { useState } from 'react';
 import { configure, mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import toJson from 'enzyme-to-json';
 import renderer, { ReactTestInstance, ReactTestRenderer } from 'react-test-renderer';
+
+import Index from '..';
 
 configure({ adapter: new Adapter() });
 
@@ -18,6 +20,10 @@ describe('Page: index', () => {
 });
 
 describe('Page: index', () => {
+  it('matches snapshot', () => {
+    const wrapper = shallow(<Index />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
   it('Render correctly', () => {
     const wrapper = mount(<Index />);
     expect(wrapper.children()).toHaveLength(1);
