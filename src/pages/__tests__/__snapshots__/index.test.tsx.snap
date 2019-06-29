@@ -32,3 +32,36 @@ exports[` 1`] = `
   </ul>
 </div>
 `;
+
+exports[`Page: index matches snapshot 1`] = `
+<div
+  className="normal"
+>
+  <div
+    className="welcome"
+  />
+  <ul
+    className="list"
+  >
+    <li>
+      To get started, edit 
+      <code>
+        src/pages/index.js
+      </code>
+       and save to reload.
+    </li>
+    <li>
+      <div
+        id="intro"
+      >
+        Welcome to Umi
+      </div>
+      <button
+        onClick={[Function]}
+      >
+        Change
+      </button>
+    </li>
+  </ul>
+</div>
+`;
