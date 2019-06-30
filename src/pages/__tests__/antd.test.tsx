@@ -13,6 +13,8 @@ class Demo extends React.Component<FormComponentProps> {
     const { form } = this.props;
     form.resetFields();
     //  提交操作
+    // tslint:disable-next-line: no-console
+    console.log('submitting');
   };
 
   render() {
@@ -43,6 +45,7 @@ describe('<FormDemo />', () => {
     expect(wrapper.find('input').prop('value')).toBe('111');
     expect(wrapper.find('textarea').prop('value')).toBe('222');
     wrapper.find('button[type="button"]').simulate('click');
+    expect(wrapper.instance());
     expect(wrapper.find('input').prop('value')).toBe('');
     expect(wrapper.find('textarea').prop('value')).toBe('');
   });

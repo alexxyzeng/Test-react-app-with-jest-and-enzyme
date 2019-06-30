@@ -48,6 +48,9 @@ describe('React Lifecycle', () => {
     expect(orderCallback.mock.calls[1][0]).toBe('getDerivedStateFromProps');
     expect(orderCallback.mock.calls[2][0]).toBe('render');
     expect(orderCallback.mock.calls[3][0]).toBe('componentDidMount');
+    expect(orderCallback.mock.calls[4][0]).toBe('getDerivedStateFromProps');
+    expect(orderCallback.mock.calls[5][0]).toBe('render');
+    expect(orderCallback.mock.calls[6][0]).toBe('componentDidUpdate');
     expect(orderCallback.mock.calls.length).toBe(7);
   });
 
@@ -56,7 +59,8 @@ describe('React Lifecycle', () => {
     expect(Lifecycle.getDerivedStateFromProps.call.length).toBe(1);
     expect(Lifecycle.prototype.render.call.length).toBe(1);
     expect(Lifecycle.prototype.componentDidMount.call.length).toBe(1);
-    jest.spyOn(Lifecycle.prototype, 'componentDidUpdate');
+    expect(Lifecycle.getDerivedStateFromProps.call.length).toBe(1);
+    expect(Lifecycle.prototype.render.call.length).toBe(1);
     expect(Lifecycle.prototype.componentDidUpdate.call.length).toBe(1);
   });
 });
